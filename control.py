@@ -5,7 +5,7 @@ BUWIZZ_SERVICE_UUID = "936E67B1-1999-B388-8144-FB74D1920550"
 BUWIZZ_CHARACTERISTIC_UUID = "50052901-74fb-4481-88b3-9919b1676e93"
 
 # helper: build BuWizz 0x30 "Set motor data" packet
-def build_motor_command(m1, m2, m3=0, m4=0, m5=0, m6=0, brake=False):
+def build_motor_command(m1, m2, m3=40, m4=40, m5=40, m6=40, brake=False):
     def clamp(v): return max(-127, min(127, v))
     packet = bytearray([
         0x30,
