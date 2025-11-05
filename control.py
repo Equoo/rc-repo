@@ -2,7 +2,7 @@ import asyncio
 from bleak import BleakClient, BleakScanner
 
 BUWIZZ_SERVICE_UUID = "936E67B1-1999-B388-8144-FB74D1920550"
-BUWIZZ_CHARACTERISTIC_UUID = "936E67B2-1999-B388-8144-FB74D1920550"
+BUWIZZ_CHARACTERISTIC_UUID = "50052901-74fb-4481-88b3-9919b1676e93"
 
 # Helper: build motor command packet (see BuWizz API 3.6)
 def build_motor_command(port_a, port_b):
