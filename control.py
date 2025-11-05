@@ -24,17 +24,26 @@ def build_motor_command(port_a, port_b):
     return packet
 
 
+
 async def main():
-    print("Scanning for BuWizz 3.0 Pro...")
+    print("🔍 Scanning for BuWizz 3.0 Pro (5 seconds)...")
+    devices = await BleakScanner.discover(timeout=5.0)
+
+    if not devices:
+        print("❌ No BLE devices found at all. Make sure Bluetooth is on and BuWizz is powered.")
+        return
+
     device = None
-    devices = await BleakScanner.discover()
     for d in devices:
-        if "BuWizz" in d.name:
+        name = d.name or "<unknown>"
+        print(f"Found device: {name} [{d.address}]")
+        if name and "BuWizz" in name:
             device = d
             break
 
     if not device:
-        print("❌ BuWizz not found. Make sure it's powered on and nearby.")
+        print("❌ Could not find any device with 'BuWizz' in its name.")
+        print("💡 Tip: run `bluetoothctl scan on` and check how your BuWizz appears.")
         return
 
     print(f"✅ Found {device.name} at {device.address}")
@@ -42,7 +51,6 @@ async def main():
     async with BleakClient(device.address) as client:
         print("🔗 Connected!")
 
-        # Example RC control loop
         while True:
             try:
                 left = int(input("Left motor power (-100..100): "))
