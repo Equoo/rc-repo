@@ -15,7 +15,7 @@ def build_motor_command(port_a, port_b):
     # Command format for "set all ports" (0x0A)
     # 0x0A <A power> <B power> <C power> <D power>
     packet = bytearray([
-        0x0A,  # Command: set motor power
+        0x0B,  # Command: set motor power
         encode(port_a),  # A
         encode(port_b),  # B
         0x80,            # C neutral
