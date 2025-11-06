@@ -15,7 +15,7 @@ LOCAL_UDP_BIND = "0.0.0.0"
 LOCAL_UDP_PORT = 50000
 
 DEADZONE = 0.1
-MAX_SPEED = 127
+MAX_SPEED = 40
 SEND_INTERVAL = 0.05  # 20Hz
 PUNCH_PING = b"BUWIZZ_PUNCH"
 PUNCH_INTERVAL = 0.12
@@ -101,6 +101,11 @@ async def controller_main():
     js = pygame.joystick.Joystick(0)
     js.init()
     print(f"🎮 Using controller: {js.get_name()}")
+
+
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    sock.sendto(f"REGISTER {MY_NAME}".encode(), ("37.59.106.4", 9999))
+    sock.close()
 
     # === Hole punching phase ===
     peer = await get_peer_udp_from_coordinator(COORD_WS, MY_NAME, PEER_NAME)

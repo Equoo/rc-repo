@@ -301,6 +301,10 @@ async def main():
     # start BLE task (it will wait for commands)
     ble_task = asyncio.create_task(buwizz_ble_task(command_queue))
 
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    sock.sendto(f"REGISTER {MY_NAME}".encode(), ("37.59.106.4", 9999))
+    sock.close()
+
     # 1) attempt to get peer udp from coordinator
     peer = await get_peer_udp_from_coordinator(COORD_WS, MY_NAME, PEER_NAME)
     punched_remote = None
