@@ -7,7 +7,7 @@ import time
 import websockets
 
 # === CONFIG ===
-COORD_WS = "ws://46.231.218.157:8765"   # 🔧 Replace with your coordinator address
+COORD_WS = "ws://37.59.106.4:8765"   # 🔧 Replace with your coordinator address
 MY_NAME = "controller_01"
 PEER_NAME = "pi_01"
 
