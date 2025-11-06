@@ -86,6 +86,7 @@ async def buwizz_ble_task():
 
 def on_peer_message(src: str, data: bytes):
     """Callback: forward any message from controller to BLE task."""
+    print(src, data)
     if src == PEER_NAME:
         asyncio.create_task(command_queue.put((src, data)))
 
