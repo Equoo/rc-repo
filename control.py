@@ -34,7 +34,7 @@ import websockets
 from bleak import BleakClient, BleakScanner
 
 # ---------------- CONFIG ----------------
-COORD_WS = "ws://YOUR.VPS.IP:8765"   # change to your coordinator websocket URL
+COORD_WS = "ws://46.231.218.157:8765"   # change to your coordinator websocket URL
 MY_NAME = "pi_01"                    # unique name for this Pi (must match controller's expectation)
 PEER_NAME = "controller_01"          # remote controller name
 LOCAL_UDP_BIND = "0.0.0.0"
