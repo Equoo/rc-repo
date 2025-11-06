@@ -11,7 +11,7 @@ import asyncio
 import time
 from typing import Tuple
 from bleak import BleakClient, BleakScanner
-from holepunch_lib import HolePunchClient
+from hole import HolePunchClient
 
 # ---------------- CONFIG ----------------
 COORD_HOST = "37.59.106.4"           # Coordinator IP

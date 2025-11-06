@@ -2,7 +2,7 @@
 import asyncio
 import pygame
 import time
-from holepunch_lib import HolePunchClient
+from hole import HolePunchClient
 
 # === CONFIG ===
 COORD_HOST = "37.59.106.4"      # Coordinator IP
