@@ -268,6 +268,7 @@ class HolePunchClient:
                 if not r:
                     continue
                 data, addr = self.udp_sock.recvfrom(4096)
+                print("RECEIVED UDP", data);
                 if data == b"HOLE_PUNCH":
                     continue
 
