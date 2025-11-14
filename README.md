@@ -1,4 +1,11 @@
 
+# Poids:
+
+Raspberry: 46g
+5g      : 304g
+cam     : 5g~~
+RC      : 931g
+
 
 # Voiture
 
